@@ -43,7 +43,7 @@
 #'
 
 
-DUE2 = function(graph, data, group, glm.family, alpha=0.05, method.FDR='BH', method.FWER='holm', Z=NULL, progressbar=TRUE){
+TWIN2 = function(graph, data, group, glm.family, alpha=0.05, method.FDR='BH', method.FWER='holm', Z=NULL, progressbar=TRUE){
 
   # Check if adjm names match
   if(!identical(colnames(graph), rownames(graph))){
@@ -77,7 +77,7 @@ DUE2 = function(graph, data, group, glm.family, alpha=0.05, method.FDR='BH', met
 
   # Test
   if(glm.family == 'binomial' | glm.family=='poisson'){
-    test.res = test_known(graph, data, group, glm.family, Z, sf, progressbar)
+    test.res = test_known(graph, data, group, glm.family, Z, progressbar)
   }
 
 
