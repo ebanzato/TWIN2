@@ -42,15 +42,14 @@ two_stages_pval = function(graph, test.pval, method.FDR, method.FWER, alpha){
       }else{
         out = c(1,ifelse(stats::p.adjust(test.pval[r,-1], method=method.FWER) <= alpha2, 1, 0))
       }
-      names(out) = sub('X','',colnames(test.pval))
       out
     }))
   }else{
     stage2 = cbind(stage1, matrix(NA, ncol=p+1, nrow=p))
-    # colnames(stage2) = sub('X','',colnames(test.pval))
-  }
 
-  # rownames(stage2) = sub('X','',rownames(test.pval))
+  }
+  colnames(stage2) = colnames(test.pval)
+  rownames(stage2) = rownames(test.pval)
 
   # out
   return(stage2)
